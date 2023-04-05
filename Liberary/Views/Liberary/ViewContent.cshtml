@@ -1,0 +1,26 @@
+﻿@model Liberaries
+
+<div class="container p-3">
+
+	<div class="row">
+		<img src="@Model.ImgPath" class="img-thumbnail " />
+
+	</div>
+	<div class="row p-1">
+		<h2 class="text-primary">@Model.BookName</h2>
+		<p class="text-opacity-75 text-secondary">Date Published:  @Model.CreatedTime</p>
+		<hr />
+	</div>
+		
+
+	<div class="row">
+		<p class="text-secondary">
+			@Model.Discription
+		</p>
+	</div>
+
+	<div>
+
+	</div>
+
+</div>

@@ -1,0 +1,38 @@
+﻿@model Liberaries
+
+<form method="post" enctype="multipart/form-data">
+	<div class="row pb2">
+		<h2 class="text-primary">Create Book</h2>
+		<hr />
+	</div>
+	<div asp-validation-summary="All"></div>
+	<div class="mb-3">
+		<label asp-for="BookName"></label>
+		<input asp-for="BookName" class="form-control" />
+		<span asp-validation-for="BookName" class="text-danger" />
+	</div>
+	<div class="mb-3">
+		<label asp-for="Discription"></label>
+		<input asp-for="Discription" class="form-control" />
+		<span asp-validation-for="Discription" class="text-danger" />
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="ImgPath"></label>
+		<input asp-for="ImgPath" class="form-control" />
+		<span asp-validation-for="ImgPath" class="text-danger" />
+	</div>
+	<div class="mb-3">
+		<label asp-for="ImgPath">Select an Image:</label>
+		<input type="file" name="postedImage" class="form-control-file" />
+		<span asp-validation-for="ImgPath" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Create</button>
+	</div>
+	
+</form>
+
+@section Scripts{
+	<partial name="_ValidationScriptsPartial" />
+}
