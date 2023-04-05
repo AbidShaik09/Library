@@ -8,14 +8,16 @@
 	</div>
 	<div class="row p-1">
 		<h2 class="text-primary">@Model.BookName</h2>
+		<p class="text-opacity-75 text-secondary">Published by:  @Model.AuthorName</p>
 		<p class="text-opacity-75 text-secondary">Date Published:  @Model.CreatedTime</p>
+
 		<hr />
 	</div>
 		
 
 	<div class="row">
 		<p class="text-secondary">
-			@Model.Discription
+			@Html.Raw(Model.Discription)
 		</p>
 	</div>
 

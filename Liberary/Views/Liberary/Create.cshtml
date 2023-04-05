@@ -11,9 +11,17 @@
 		<input asp-for="BookName" class="form-control" />
 		<span asp-validation-for="BookName" class="text-danger" />
 	</div>
+
+	<div class="mb-3">
+		<label asp-for="AuthorName"></label>
+		<input asp-for="AuthorName" class="form-control" />
+		<span asp-validation-for="AuthorName" class="text-danger" />
+	</div>
 	<div class="mb-3">
 		<label asp-for="Discription"></label>
-		<input asp-for="Discription" class="form-control" />
+		<textarea asp-for="Discription" class="form-control" >
+
+		</textarea>
 		<span asp-validation-for="Discription" class="text-danger" />
 	</div>
 

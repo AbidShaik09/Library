@@ -46,8 +46,9 @@ namespace Liberary.Controllers
 					}
 
 					model.ImgPath = "/images/" + fileName;
-
+					string? formattedDescription = "<p>" + model.Discription.Replace("\n", "</p><p>") + "</p>";
 					_db.Add(model);
+					model.Discription= formattedDescription;
 					await _db.SaveChangesAsync();
 
 					return RedirectToAction("Index");
