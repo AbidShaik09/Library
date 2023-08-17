@@ -1,4 +1,4 @@
-﻿@model Liberaries
+﻿@model Libraries
 
 <div class="container p-3">
 
@@ -7,8 +7,8 @@
 
 	</div>
 	<div class="row p-1">
-		<h2 class="text-primary">@Model.BookName</h2>
-		<p class="text-opacity-75 text-secondary">Published by:  @Model.AuthorName</p>
+		<h2 class="text-primary">@Model.ArticleName</h2>
+		<p class="text-opacity-75 text-secondary">Published by:  @Model.UserName</p>
 		<p class="text-opacity-75 text-secondary">Date Published:  @Model.CreatedTime</p>
 
 		<hr />
@@ -17,7 +17,7 @@
 
 	<div class="row">
 		<p class="text-secondary">
-			@Html.Raw(Model.Discription)
+			@Html.Raw(Model.Description)
 		</p>
 	</div>
 

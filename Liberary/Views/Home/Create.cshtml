@@ -1,0 +1,53 @@
+﻿@model UserModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-action="Create" asp-controller="Home" enctype="multipart/form-data" method="post" >
+
+    <div class="row pb2">
+        <h2 class="text-primary">Create Account</h2>
+        <hr />
+    </div>
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        @Html.Label("UserName","UserName:")
+        <input id="UserName" asp-for="UserName" class="form-control">
+        <span asp-validation-for="UserName" class="text-danger" />
+    </div>
+    <div class="mb-3">
+        @Html.Label("Password","Password:")
+        <input id="Password" asp-for="Password" type="password" class="form-control">
+        <span asp-validation-for="Password" class="text-danger" />
+    </div>
+    <div class="mb-3">
+        @Html.Label("Email","Email:")
+        <input id="Email" asp-for="Email" type="email" class="form-control">
+        <span asp-validation-for="Email" class="text-danger" />
+    </div>
+    <div class="mb-3">
+        @Html.Label("Mobile","Mobile:")
+        <input id="Mobile" asp-for="PhoneNumber"  class="form-control">
+        <span asp-validation-for="PhoneNumber" class="text-danger" />
+    </div>
+    <div class="mb-3">
+        <label>Upload Profile Picture:</label>
+        <input type="file" name="postedImage"   class="form-control-file" />
+        
+    </div>
+    <div >
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <div>
+        <p>Already have an account? </p>
+        <br />
+        @Html.ActionLink("Sign in","Login","Home")
+    </div>
+</form>
+<script>
+    
+    console.log(pp.append("a");
+    pp.remove;
+    <partial name="_ValidationScriptsPartial" />
+</script>
+

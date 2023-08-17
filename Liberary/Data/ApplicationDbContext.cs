@@ -10,6 +10,7 @@ namespace Liberary.Data
                     
         }
         
-        public DbSet<Liberaries> Books { get; set; }
+        public DbSet<Libraries> Books { get; set; }
+        public DbSet<UserModel> Users { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model Liberaries
+﻿@model Libraries
 
 <form method="post" enctype="multipart/form-data">
 	<div class="row pb2">
@@ -7,38 +7,30 @@
 	</div>
 	<div asp-validation-summary="All"></div>
 	<div class="mb-3">
-		<label asp-for="BookName"></label>
-		<input asp-for="BookName" class="form-control" />
-		<span asp-validation-for="BookName" class="text-danger" />
+		<label asp-for="ArticleName"></label>
+		<input asp-for="ArticleName" class="form-control" />
+		<span asp-validation-for="ArticleName" class="text-danger" />
 	</div>
+	<div class="mb-3">
+		<label asp-for="UserName"></label>
+		<input readonly value="@ViewBag.UserName" asp-for="UserName" />
+		<span asp-validation-for="UserName" class="text-danger" />
+	</div>
+	
 
 	<div class="mb-3">
-		<label asp-for="AuthorName"></label>
-		<input asp-for="AuthorName" class="form-control" />
-		<span asp-validation-for="AuthorName" class="text-danger" />
+		<label asp-for="Description"></label>
+		<textarea asp-for="Description" class="form-control" ></textarea>
+		<span asp-validation-for="Description" class="text-danger" />
 	</div>
 	<div class="mb-3">
-		<label asp-for="Discription"></label>
-		<textarea asp-for="Discription" class="form-control" >
-
-		</textarea>
-		<span asp-validation-for="Discription" class="text-danger" />
-	</div>
-
-	<div class="mb-3">
-		<label asp-for="ImgPath"></label>
-		<input asp-for="ImgPath" class="form-control" />
-		<span asp-validation-for="ImgPath" class="text-danger" />
-	</div>
-	<div class="mb-3">
-		<label asp-for="ImgPath">Select an Image:</label>
-		<input type="file" name="postedImage" class="form-control-file" />
-		<span asp-validation-for="ImgPath" class="text-danger"></span>
+		<label>Select an Image:</label>
+		<input type="file" name="postedImage" accept="image/png, image/gif, image/jpeg" class="form-control-file" />
 	</div>
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">Create</button>
 	</div>
-	
+
 </form>
 
 @section Scripts{

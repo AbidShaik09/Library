@@ -1,0 +1,56 @@
+﻿@model UserModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h1>Profile:</h1>
+<div>
+
+    <table class="table table-bordered table-primary">
+        <thead>
+            <tr>
+                <th>
+                    User Name
+                </th>
+                <th>
+                    @Model.UserName
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Email:
+                </td>
+                <td>
+                    @Model.Email
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Phone:
+                </td>
+                <td>
+                    @Model.PhoneNumber
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Profile Picture:
+                </td>
+                <td>
+                    <img src="@Model.profilepic" style="border:3px solid black; border-radius: 50px;" width="250" height="250" />
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+    
+        
+   
+</div>
+<h1>Articles: </h1>

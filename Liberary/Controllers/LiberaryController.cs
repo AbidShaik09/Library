@@ -17,16 +17,33 @@ namespace Liberary.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Liberaries> objList=_db.Books;
+            IEnumerable<Libraries> objList=_db.Books;
             return View(objList);
         }
 
         public IActionResult Create()
         {
+			if (HttpContext.Session.GetString("UserName") == null)
+			{
+				return RedirectToAction("Login","Home");
+			}
+			ViewBag.UserName = HttpContext.Session.GetString("UserName");
             return View();
         }
+
+        public IActionResult Profile()
+        {
+            if (HttpContext.Session.GetString("UserName") == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+			List<UserModel> user = _db.Users.Where(u => u.UserName == HttpContext.Session.GetString("UserName")).ToList();
+
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            return View(user[0]);
+        }
         [HttpPost]
-		public async Task<IActionResult> Create(Liberaries model, IFormFile postedImage)
+		public async Task<IActionResult> Create(Libraries model, IFormFile postedImage)
 		{
 			if (ModelState.IsValid)
 			{
@@ -46,9 +63,11 @@ namespace Liberary.Controllers
 					}
 
 					model.ImgPath = "/images/" + fileName;
-					string? formattedDescription = "<p>" + model.Discription.Replace("\n", "</p><p>") + "</p>";
+					string? formattedDescription = "<p>" + model.Description.Replace("\n", "</p><p>") + "</p>";
+
+					model.UserName = HttpContext.Session.GetString("UserName");
 					_db.Add(model);
-					model.Discription= formattedDescription;
+					model.Description= formattedDescription;
 					await _db.SaveChangesAsync();
 
 					return RedirectToAction("Index");

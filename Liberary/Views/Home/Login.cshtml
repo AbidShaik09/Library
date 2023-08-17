@@ -1,0 +1,33 @@
+﻿@model UserModel
+@{
+    
+    ViewData["Title"] = "Login";
+}
+
+
+<form asp-controller="Home" asp-action="Login" method="post">
+    <div class="row pb2">
+        <h2 class="text-primary">Sign in</h2>
+        <hr />
+    </div>
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        @Html.Label("UserName","UserName:")
+        <input id="UserName" asp-for="UserName" class="form-control">
+        <span asp-validation-for="UserName" class="text-danger" />
+    </div>
+    <div class="mb-3">
+        @Html.Label("Password","Password:")
+        <input id="Password" asp-for="Password" type="password" class="form-control">
+        <span asp-validation-for="Password" class="text-danger" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <div>
+        <p>Don't have an account? </p>
+        <br />
+        @Html.ActionLink("Create Account","Create","Home")
+    </div>
+</form>
+
