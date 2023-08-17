@@ -38,8 +38,9 @@ namespace Liberary.Controllers
                 return RedirectToAction("Login", "Home");
             }
 			List<UserModel> user = _db.Users.Where(u => u.UserName == HttpContext.Session.GetString("UserName")).ToList();
-
-            ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            List<Libraries> Articles=_db.Books.Where(u => u.UserName == HttpContext.Session.GetString("UserName")).ToList();
+            ViewBag.Articles = Articles;
+			ViewBag.UserName = HttpContext.Session.GetString("UserName");
             return View(user[0]);
         }
         [HttpPost]

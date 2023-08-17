@@ -54,3 +54,17 @@
    
 </div>
 <h1>Articles: </h1>
+
+<div class=" row">
+    @foreach (var obj in ViewBag.Articles)
+    {
+        <div class="container col-4 p-4" style="max-height:500px">
+            <a asp-controller="Liberary" asp-action="ViewContent" asp-route-id="@obj.Id">
+                <img src="@obj.ImgPath" class="img-responsive" style="width:100%;height:100%; object-fit:contain" />
+                <div width="200px" class="text-primary align-content-center align-items-center justify-content-center d-flex ">
+                    <p class=""> @obj.ArticleName</p>
+                </div>
+            </a>
+        </div>
+    }
+</div>
