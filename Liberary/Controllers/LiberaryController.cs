@@ -43,6 +43,44 @@ namespace Liberary.Controllers
 			ViewBag.UserName = HttpContext.Session.GetString("UserName");
             return View(user[0]);
         }
+
+		public IActionResult EditPage()
+		{
+            if (HttpContext.Session.GetString("UserName") == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            List<UserModel> user = _db.Users.Where(u => u.UserName == HttpContext.Session.GetString("UserName")).ToList();
+            List<Libraries> Articles = _db.Books.Where(u => u.UserName == HttpContext.Session.GetString("UserName")).ToList();
+            ViewBag.Articles = Articles;
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            return View(user[0]);
+        }
+		
+        public IActionResult Edit(int Id)
+		{
+			var article =  _db.Books.Where(u=>u.Id == Id);
+
+			return View(article);
+		}
+        public IActionResult Delete(int ? id)
+		{
+            if (id == null || id < 0)
+            {
+                return NotFound();
+            }
+
+            var bookFromDb = _db.Books.Find(id);
+
+            if (bookFromDb == null)
+            {
+                return NotFound();
+            }
+            _db.Books.Remove(bookFromDb);
+			_db.SaveChanges();
+			return RedirectToAction("EditPage");
+		}
+
         [HttpPost]
 		public async Task<IActionResult> Create(Libraries model, IFormFile postedImage)
 		{
@@ -80,12 +118,12 @@ namespace Liberary.Controllers
         public IActionResult ViewContent(int ? id)
         {
 
-			{
+			
 				if (id == null ||id<0)
 				{
 					return NotFound();
 				}
-			}
+			
 			var bookFromDb = _db.Books.Find(id);
 
 			if(bookFromDb == null)

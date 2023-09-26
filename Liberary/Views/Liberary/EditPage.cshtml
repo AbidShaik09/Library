@@ -1,0 +1,52 @@
+﻿@model UserModel
+@{
+    ViewData["Title"] = "EditPage";
+}
+
+<h1>EditPage</h1>
+
+<div class=" table table-bordered  table-primary">
+
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Articles
+                </th>
+                <th>
+                    edit
+                </th>
+                <th>
+                    delete
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in ViewBag.Articles)
+            {
+                <tr>
+                    <td>
+                        <div class="container col-4 p-4" style="max-height:500px">
+                            <a asp-controller="Liberary" asp-action="ViewContent" asp-route-id="@obj.Id">
+                                <img src="@obj.ImgPath" class="img-responsive" style="width:100%;height:100%; object-fit:contain" />
+                                <div width="200px" class="text-primary align-content-center align-items-center justify-content-center d-flex ">
+                                    <p class=""> @obj.ArticleName</p>
+                                </div>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        edit
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-controller="Liberary" asp-route-id="@obj.Id">delete</a>
+                        
+                    </td>
+                </tr>
+                
+        
+    }
+        </tbody>
+    </table>
+
+</div>
