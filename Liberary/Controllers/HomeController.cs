@@ -27,6 +27,13 @@ namespace Liberary.Controllers
             return View();
         }
 
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("UserName");
+            return RedirectToAction("Login");
+        }
+
+
         public IActionResult Create()
         {
             return View();
